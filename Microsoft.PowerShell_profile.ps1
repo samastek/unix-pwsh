@@ -1,5 +1,5 @@
-$githubUser = "CrazyWolf13" # Change this here if you forked the repository.
-$name= "User" # Change this to your name.
+$githubUser = "samastek" # Change this here if you forked the repository.
+$name= "sami alzein" # Change this to your name.
 $githubRepo = "unix-pwsh" # Change this here if you forked the repository and changed the name.
 $githubBaseURL= "https://raw.githubusercontent.com/$githubUser/$githubRepo/main"
 $OhMyPoshConfigFileName = "montys.omp.json" # Filename of the OhMyPosh config file
@@ -154,7 +154,8 @@ $GlobalState = [psmoduleinfo]::new($false)
 $GlobalState.SessionState = $ExecutionContext.SessionState
 # to run our code asynchronously
 $Runspace = [runspacefactory]::CreateRunspace($Host)
-$Powershell = [powershell]::Create($Runspace)
+$Powershell = [powershell]::Create()
+$Powershell.Runspace = $Runspace
 $Runspace.Open()
 $Runspace.SessionStateProxy.PSVariable.Set('GlobalState', $GlobalState)
 # ArgumentCompleters are set on the ExecutionContext, not the SessionState
